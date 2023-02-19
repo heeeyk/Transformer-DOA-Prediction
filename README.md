@@ -8,7 +8,7 @@ Compared with previous works, our proposed method has some obvious advantages su
 
 ![image](picture/net.jpg)
 
-Experimental results show that our method significantly outperforms the traditional PK-PD model and the deep learning method:
+**Experimental results show that our method significantly outperforms the traditional PK-PD model and the deep learning method:**
 
 ![image](picture/3_method_compare.png)
 
@@ -17,7 +17,7 @@ Experimental results show that our method significantly outperforms the traditio
 
 The main requirements are pytorch 1.4.0 with python 3.9.1.
 
-The [`mainer`](mainer) sets up a container with a main function for this project. Run ['main_featurefusion'](main_featurefusion) to begin training or testing.
+The [`mainer`](mainer) sets up a container with a main function for this project. Run ['mainer\main_featurefusion'](main_featurefusion) to begin training or testing.
 The [`loader`](loader) deposit some programs to load drug and BIS record (which can access in [VitalDB](https://vitaldb.net/)). 
 
 
