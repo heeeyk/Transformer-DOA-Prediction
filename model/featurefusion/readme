@@ -1,0 +1,81 @@
+
+GRN:
+    medicine:
+        input_dim=1,
+        hidden_dim=32,
+        output_dim=32,
+        dropout=0.05,
+        context_dim=32
+
+        forward:
+        input(x): (bs, num_inputs) = (bs, 1)
+        input(c): (bs, num_inputs) = (bs, 32)
+        output(x): (bs, hidden_dim) = (bs, 32)
+
+    static(body):
+        input_dim=1,
+        hidden_dim=32,
+        output_dim=32,
+        dropout=0.05,
+        context_dim=None
+
+        forward:
+        input(x): (bs, num_inputs) = (bs, 1)
+        output(x): (bs, hidden_dim) = (bs, 32)
+
+
+
+VariableSelectionNetwork:
+    input_dim=2,
+    num_inputs=180,
+    hidden_dim=180,
+    dropout=0.1,
+    context_dim=32,
+
+    forward:
+        input(flattened_embedding): (num_inputs, bs, input_dim) = (180, bs, 2)
+        input(context): (bs, num_inputs) = (bs, 180)
+        outputs: (bs, hidden_dim) = (bs, 180)
+        sparse_weights: (bs, num_inputs, 1) = (bs, 180, 1)
+
+StaticCovariateEncoder:
+    f_dim = 5
+    hidden_dim = 32
+
+    forward:
+        input(x): (..., f_dim) = (bs, 5)
+        output(cs,ce,cc,ch): (..., hidden_dim) = (bs, 32)
+
+RnnEncoder:
+    f = 32,
+    n = 32,
+
+    forward:
+        input(x): (bs, len, f) = (bs, 180, 32)
+        input(c_h): (bs, f) = (bs, 32)
+        input(c_c): (bs, f) = (bs, 32)
+        output(x): (bs, len, n) = (bs, 180, 32)
+
+
+InterpretableMultiHeadAttention:
+parser = argparse.ArgumentParser()
+parser.add_argument('--n_head',         default=4, type=int)
+parser.add_argument('--hidden_size',    default=32,     type=int)
+parser.add_argument('--attn_dropout',    default=0.05,     type=int)
+parser.add_argument('--dropout',    default=0.05,     type=int)
+parser.add_argument('--example_length', default=180,      type=int)
+parser.add_argument('--quantiles', default=3,      type=int)
+args = parser.parse_args()
+
+    forward:
+    input(x): (bs, len, f) = (bs, 180, 32)
+    output: (bs, len, hidden_size) = (bs, 180, 32)
+
+
+
+
+
+
+
+
+
