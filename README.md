@@ -8,5 +8,21 @@ Compared with previous works, our proposed method has some obvious advantages su
 
 ![image](picture/net.jpg)
 
-Experimental results show that our method significantly outperforms the traditional PK-PD model and the deep learning method.
+Experimental results show that our method significantly outperforms the traditional PK-PD model and the deep learning method:
+
 ![image](picture/3_method_compare.png)
+
+
+## Setup
+
+The main requirements are [jax](https://github.com/google/jax), [flax](https://github.com/google/flax) and [tensorflow_datasets](https://www.tensorflow.org/datasets).
+
+The [`Dockerfile`](Dockerfile) sets up a container with a functioning environment for this project. It can be used as a template for constructing an environment by other means. If using this container, the working directory will point to this repository. For the rest of this Readme, we use `ROOT` to reference the path to this repository.
+
+After pulling this repository, create directories to contain the data and experiment checkpoints etc.
+
+```sh
+mkdir data
+mkdir exps
+```
+
