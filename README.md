@@ -13,16 +13,11 @@ Experimental results show that our method significantly outperforms the traditio
 ![image](picture/3_method_compare.png)
 
 
-## Setup
+## Usage
 
-The main requirements are [jax](https://github.com/google/jax), [flax](https://github.com/google/flax) and [tensorflow_datasets](https://www.tensorflow.org/datasets).
+The main requirements are pytorch 1.4.0 with python 3.9.1.
 
-The [`Dockerfile`](Dockerfile) sets up a container with a functioning environment for this project. It can be used as a template for constructing an environment by other means. If using this container, the working directory will point to this repository. For the rest of this Readme, we use `ROOT` to reference the path to this repository.
+The [`mainer`](mainer) sets up a container with a main function for this project. Run ['main_featurefusion'](main_featurefusion) to begin training or testing.
+The [`loader`](loader) deposit some programs to load drug and BIS record (which can access in [VitalDB](https://vitaldb.net/)). 
 
-After pulling this repository, create directories to contain the data and experiment checkpoints etc.
-
-```sh
-mkdir data
-mkdir exps
-```
 
