@@ -7,7 +7,7 @@ To address these existing issues, this paper proposed a new transformer-based me
 Compared with previous works, our proposed method has some obvious advantages such as predicting anesthetic depth effectively under the sudden situation and the deep anesthesia stage.
 
 
-<div align=center><img src="picture/net.jpg" #width="750">
+<div align=center><img src="picture/net.jpg" #width="700">
 
 **Experimental results show that our method significantly outperforms the traditional PK-PD model and the deep learning method:**
 
