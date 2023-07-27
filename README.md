@@ -1,10 +1,6 @@
 # Transformer-DOA-Prediction
 **A Transformer-based Prediction Method for Depth of Anesthesia During Target-controlled Infusion of Propofol  and Remifentanil.**
 
-
-<div align=center><img src="picture/net.jpg" #width="600"></div>
-
-
 ## Usage
 
 The main requirements are pytorch 1.4.0 with python 3.9.1.
