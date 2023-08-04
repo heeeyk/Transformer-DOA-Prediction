@@ -20,7 +20,6 @@ def setup_seed(seed):
     random.seed(seed)
     torch.backends.cudnn.deterministic = True
 
-
 def lds():
     data_label, label_num = d_box.label_stat(180, "train")
     p = np.asarray(label_num) / len(data_label) + 1e-3
@@ -34,12 +33,8 @@ def lds():
     eff_label_dist[30:40] += -0.06
     return eff_label_dist
 
-
-# 设置随机数种子
 setup_seed(2)
-# 训练或测试模式
 mode = 'test'
-# 训练参数读取
 args = params_save.Params.trainparam()
 
 if __name__ == "__main__":
@@ -57,7 +52,7 @@ if __name__ == "__main__":
             nums=1,
             tw=args.tw
         )
-        # 开始训练或测试
+        
         if mode == "train":
 
             vaild_loader, train_loader, test_loader, test_label = d_box.load_all(
@@ -90,9 +85,6 @@ if __name__ == "__main__":
                       "%.2f  " % x["meanRMSE"],
                       "%.2f  " % x["meanMAE"])
 
-            """
-                平滑后的结果
-            """
             lowess = sm.nonparametric.lowess
             test_new = list(range(76))
             for i in tqdm.tqdm(range(76)):
@@ -107,26 +99,6 @@ if __name__ == "__main__":
                       "%.2f  " % x["meanRMSE"],
                       "%.2f  " % x["meanMAE"])
 
-            # """
-            #     保存结果
-            # """
-            # access = evaluate_output.Evalulate(test_new, test_label, ist, isp, case_num=76)
-            # file = {}
-            # for i in range(4):
-            #     X = np.asarray(access.loss(i))
-            #     name = ["mdpe", "mdape", "rmse",
-            #             "induction_mdpe", "induction_mdape", "induction_rmse",
-            #             "maintence_mdpe", "maintence_mdape", "maintence_rmse",
-            #             "recovery_mdpe", "recovery_mdape", "recovery_rmse"]
-            #     for j in range(3):
-            #         file[f"{name[3*i+j]}"] = X[j, :]
-            #
-            # import pandas as pd
-            # df = pd.DataFrame(dict([(k, pd.Series(v)) for k, v in file.items()]))
-            #
-            # df.to_csv('/HDD_data/HYK/bis/database/result.csv')
-
-
 
         elif mode == "test":
 
@@ -135,18 +107,11 @@ if __name__ == "__main__":
                 batch_size=4,
             )
 
-            # vaild_loader, train_loader, test_loader, test_label = d_box.load_all(
-            #     512, 3000, 256
-            # )
-            # pre_tr_times = 25
-            # pre_file = f'/home/user02/HYK/bis_transformer/output/tranlstm/model/epoch{pre_tr_times}.pth'
             test_out = box.test(
                 X=test_loader,
                 epoch_pth=args.best_file,
                 test_batch=30)
 
-            # plt.grid(True)
-            # plt.autoscale(axis='x', tight=True)
             for i in range(10,22):
                 plt.figure()
                 plt.plot(test_label[i], 'silver', label="ground truth")
