@@ -29,8 +29,6 @@ def lds():
     lds_kernel_window = evaluate.Evalulate.get_lds_kernel_window(kernel='gaussian', ks=10, sigma=8)
     from scipy.ndimage import convolve1d
     eff_label_dist = convolve1d(p, weights=lds_kernel_window, mode='constant')
-    # eff_label_dist[60:] += 0.1
-    eff_label_dist[30:40] += -0.06
     return eff_label_dist
 
 setup_seed(2)
@@ -84,13 +82,8 @@ if __name__ == "__main__":
                       "%.2f  " % x["meanMDAPE"],
                       "%.2f  " % x["meanRMSE"],
                       "%.2f  " % x["meanMAE"])
-
-            lowess = sm.nonparametric.lowess
-            test_new = list(range(76))
-            for i in tqdm.tqdm(range(76)):
-                axis = list(range(len(test_out[i])))
-                test_new[i] = lowess(test_out[i], axis, frac=0.005)[:, 1]
-            access = evaluate.Evalulate(test_new, test_label, ist, isp, case_num=76)
+                
+            access = evaluate.Evalulate(test_out, test_label, ist, isp, case_num=76)
             print("MDPE    MDAPE    RMSE    MAE\r")
             for i in range(4):
                 x = access.loss(i)
