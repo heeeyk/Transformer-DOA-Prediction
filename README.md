@@ -1,9 +1,9 @@
 # Transformer-DOA-Prediction
 **A Transformer-based Prediction Method for Depth of Anesthesia During Target-controlled Infusion of Propofol  and Remifentanil.**
-[![](https://img.shields.io/badge/Paper-arXiv-green?style=plastic&logo=arXiv&logoColor=red)](https://arxiv.org/abs/2308.01929)
-[![](https://img.shields.io/badge/Paper-PDF-red?style=plastic&logo=adobeacrobatreader&logoColor=blue)](https://ieeexplore.ieee.org/abstract/document/10218321)
+[![](https://img.shields.io/badge/Paper-arXiv-red?style=plastic&logo=arXiv&logoColor=red)](https://arxiv.org/abs/2308.01929)
+[![](https://img.shields.io/badge/Paper-IEEE-blue?style=plastic&logo=adobeacrobatreader&logoColor=blue)](https://ieeexplore.ieee.org/abstract/document/10218321)
 
-https://ieeexplore.ieee.org/abstract/document/10218321
+
 
 ## Usage
 
