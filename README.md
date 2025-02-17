@@ -18,3 +18,16 @@ The [`mainer`](mainer) sets up a container with a main function for this project
 The [`loader`](loader) deposit some programs to load drug and BIS record (which can access in [VitalDB](https://vitaldb.net/)). 
 
 
+## Citation
+
+If you find our project useful, please consider citing us:
+
+```tex
+@article{he2023transformer,
+  title={A Transformer-based Prediction Method for Depth of Anesthesia During Target-controlled Infusion of Propofol and Remifentanil},
+  author={He, Yongkang and Peng, Siyuan and Chen, Mingjin and Yang, Zhijing and Chen, Yuanhui},
+  journal={IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  year={2023},
+  publisher={IEEE}
+}
+```
